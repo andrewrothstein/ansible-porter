@@ -31,4 +31,6 @@ galaxy_info:
     - development
   role_name: porter
 
-dependencies: []
+dependencies:
+  - role: andrewrothstein.curl
+    version: v1.0.7
