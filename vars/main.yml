@@ -2,3 +2,5 @@
 # vars file for porter
 porter_install_upstream_sh: install-{{ porter_os }}.sh
 porter_install_target_sh: install-porter-{{ porter_os }}.sh
+porter_url: '{{ porter_mirror }}/{{ porter_install_upstream_sh }}'
+porter_install_fq_target_sh: '{{ porter_install_dir }}/{{ porter_install_target_sh }}'

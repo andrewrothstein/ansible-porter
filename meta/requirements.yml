@@ -1,0 +1,5 @@
+---
+- name: andrewrothstein.curl
+  version: v1.0.17
+- name: andrewrothstein.bash
+  version: v1.1.11

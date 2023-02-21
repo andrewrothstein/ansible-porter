@@ -1,6 +1,6 @@
 andrewrothstein.porter
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-porter.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-porter)
+![Build Status](https://github.com/andrewrothstein/ansible-porter/actions/workflows/build.yml/badge.svg)
 
 Installs [Porter](https://porter.sh). Does not support named versions. PRs accepted.
 

@@ -1,4 +1,8 @@
 ---
+- include_role:
+    name: andrewrothstein.curl
+- include_role:
+    name: andrewrothstein.bash
 - name: resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -9,12 +13,12 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: download
-  become: yes
+- name: downloading {{ porter_url }} to {{ porter_install_fq_target_sh }}
+  become: true
   become_user: root
   get_url:
-    url: '{{ porter_mirror }}/{{ porter_install_upstream_sh }}'
-    dest: '{{ porter_install_dir }}/{{ porter_install_target_sh }}'
+    url: '{{ porter_url }}'
+    dest: '{{ porter_install_fq_target_sh }}'
     mode: 0755
-- name: install
-  command: '{{ porter_install_dir }}/{{ porter_install_target_sh }}'
+- name: installing with {{ porter_install_fq_target_sh }}
+  command: '{{ porter_install_fq_target_sh }}'
