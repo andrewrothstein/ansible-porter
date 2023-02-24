@@ -1,5 +1,6 @@
 ---
 # vars file for porter
+porter_os: '{{ porter_os_map[ansible_system] }}'
 porter_install_upstream_sh: install-{{ porter_os }}.sh
 porter_install_target_sh: install-porter-{{ porter_os }}.sh
 porter_url: '{{ porter_mirror }}/{{ porter_install_upstream_sh }}'

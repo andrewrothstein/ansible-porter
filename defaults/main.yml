@@ -3,6 +3,9 @@
 
 # as extracted from https://porter.sh/install
 
-porter_os: linux
-porter_mirror: https://cdn.deislabs.io/porter/latest
+porter_os_map:
+  Linux: linux
+  Darwin: mac
+  Windows: windows
+porter_mirror: https://cdn.porter.sh/latest
 porter_install_dir: /usr/local/bin
