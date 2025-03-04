@@ -1,10 +1,12 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.curl
+  ansible.builtin.include_role:
     name: andrewrothstein.curl
-- include_role:
+- name: Installing andrewrothstein.bash
+  ansible.builtin.include_role:
     name: andrewrothstein.bash
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -13,12 +15,13 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: downloading {{ porter_url }} to {{ porter_install_fq_target_sh }}
+- name: Downloading {{ porter_url }} to {{ porter_install_fq_target_sh }}
   become: true
   become_user: root
-  get_url:
+  ansible.builtin.get_url:
     url: '{{ porter_url }}'
     dest: '{{ porter_install_fq_target_sh }}'
-    mode: 0755
-- name: installing with {{ porter_install_fq_target_sh }}
-  command: '{{ porter_install_fq_target_sh }}'
+    mode: '755'
+- name: Installing with {{ porter_install_fq_target_sh }}
+  ansible.builtin.command: '{{ porter_install_fq_target_sh }}'
+  changed_when: false
